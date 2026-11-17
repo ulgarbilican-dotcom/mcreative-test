@@ -1151,3 +1151,10 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
 }
 @media(max-width:800px){.hero .hvid{object-position:50% 22%!important}.hero-in{padding-bottom:clamp(130px,33vw,165px)!important}}
 @media(max-width:800px){.hero-in{padding-bottom:clamp(104px,27vw,124px)!important}.hero .sub{margin-bottom:clamp(18px,5vw,26px)!important}}
+
+/* v39: desktop: veel meer ruimte links-rechts tussen foto en tekst */
+@media(min-width:801px){
+  :root{--maxw:1260px;--side-gap:clamp(56px,9vw,176px)}
+  .intro-grid,.phil-grid,.contact-grid,.rev-grid{column-gap:var(--side-gap)!important}
+  .scene-stick{column-gap:var(--side-gap)!important}
+}
