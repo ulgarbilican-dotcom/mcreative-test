@@ -1066,3 +1066,18 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
 .sc-media::before{content:"";position:absolute;inset:-12%;z-index:0;background:var(--bg) center/cover no-repeat;filter:blur(26px) saturate(1.05) sepia(.15);opacity:.9;transition:background-image .6s}
 .sc-media img{z-index:1;object-fit:contain!important;transform:none!important;filter:sepia(.14) saturate(1) contrast(1.03)!important}
 .sc-media img.on{transform:none!important}
+
+/* v32: mobiel zoals het origineel: filosofie-kaarten = horizontale rij die vastklikt; logo's klein, 3 naast elkaar */
+@media(max-width:800px){
+  .phil-grid .beliefs,.beliefs{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;grid-template-columns:none!important;height:auto!important;
+    gap:14px!important;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y;
+    margin:0 calc(var(--gut) * -1)!important;padding:12px calc((100vw - min(300px,78vw)) / 2) 30px!important}
+  .beliefs::-webkit-scrollbar{display:none}
+  .beliefs li{flex:0 0 min(300px,78vw)!important;scroll-snap-align:center;scroll-snap-stop:normal;min-height:min(340px,92vw);display:flex;flex-direction:column;justify-content:flex-end}
+  .logos{column-gap:10px!important;row-gap:22px!important;justify-content:center}
+  .logos li{flex:0 0 calc(33.33% - 10px)!important;max-width:calc(33.33% - 10px);display:flex;align-items:center;justify-content:center}
+  .logos li img{max-height:34px!important;max-width:78%!important;width:auto;height:auto;object-fit:contain}
+}
+
+/* v33: geen eigen "Watch the review"-knop; de speler heeft al een afspeelknop */
+.rplay{display:none!important}
