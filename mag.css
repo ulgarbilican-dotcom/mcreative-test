@@ -1150,3 +1150,4 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
   .hero-in{padding-bottom:clamp(120px,30vw,150px)!important}
 }
 @media(max-width:800px){.hero .hvid{object-position:50% 22%!important}.hero-in{padding-bottom:clamp(130px,33vw,165px)!important}}
+@media(max-width:800px){.hero-in{padding-bottom:clamp(104px,27vw,124px)!important}.hero .sub{margin-bottom:clamp(18px,5vw,26px)!important}}
