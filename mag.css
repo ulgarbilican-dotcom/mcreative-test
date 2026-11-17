@@ -1195,3 +1195,11 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
 @media(max-width:800px){
   .beliefs li{aspect-ratio:1/1.12!important;min-height:0!important;height:auto!important;align-self:flex-start;justify-content:flex-end!important;padding:28px 24px!important}
 }
+
+/* v45: mobiel filosofie-kaarten: inhoud verticaal gecentreerd en groter, kaart is gevuld */
+@media(max-width:800px){
+  .beliefs li{justify-content:center!important;align-items:center!important;gap:0!important;padding:28px 26px!important}
+  .beliefs li b{font-size:15px!important;letter-spacing:.14em;margin-bottom:18px!important}
+  .beliefs li h3{font-size:clamp(26px,7.4vw,32px)!important;line-height:1.05!important;margin:0 0 16px!important}
+  .beliefs li p{font-size:clamp(17px,4.6vw,19px)!important;line-height:1.55!important;max-width:22ch!important;margin:0 auto!important}
+}
