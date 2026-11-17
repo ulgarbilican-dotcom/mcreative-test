@@ -252,3 +252,8 @@ document.querySelectorAll('a[data-soon]').forEach(a=>a.addEventListener('click',
 
 /* logo weg bij scrollen */
 (function(){const n=document.getElementById('nav');if(!n)return;const f=()=>n.classList.toggle('scrolled',scrollY>60);addEventListener('scroll',f,{passive:true});f()})();
+
+/* diensten-foto: zachte vulling = de actieve foto zelf, uitgezoomd getoond */
+(function(){const m=document.querySelector('.sc-media');if(!m)return;const imgs=[...m.querySelectorAll('img')];
+ const sync=()=>{const a=imgs.find(i=>i.classList.contains('on'))||imgs[0];if(a)m.style.setProperty('--bg','url("'+a.getAttribute('src')+'")')};
+ imgs.forEach(i=>new MutationObserver(sync).observe(i,{attributes:true,attributeFilter:['class']}));sync()})();

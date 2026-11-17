@@ -1060,3 +1060,9 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
   .phil-grid .beliefs{height:auto}
 }
 @media(min-width:561px) and (max-width:800px){.intro-grid .photo,.phil-grid .photo,.sc-media{max-width:520px!important}}
+
+/* v31: diensten-foto's volledig zichtbaar (uitgezoomd, niets afgesneden), zachte vulling erachter */
+.sc-media{background:#d8d2c6;isolation:isolate}
+.sc-media::before{content:"";position:absolute;inset:-12%;z-index:0;background:var(--bg) center/cover no-repeat;filter:blur(26px) saturate(1.05) sepia(.15);opacity:.9;transition:background-image .6s}
+.sc-media img{z-index:1;object-fit:contain!important;transform:none!important;filter:sepia(.14) saturate(1) contrast(1.03)!important}
+.sc-media img.on{transform:none!important}
