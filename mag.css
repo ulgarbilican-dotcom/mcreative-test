@@ -1158,3 +1158,40 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
   .intro-grid,.phil-grid,.contact-grid,.rev-grid{column-gap:var(--side-gap)!important}
   .scene-stick{column-gap:var(--side-gap)!important}
 }
+
+/* v40: mobiel hero: kop op 2 rijen, helemaal onderaan zodat het logo vrij blijft op elk toestel */
+@media(max-width:800px){
+  .hero .hvid{object-position:50% 0%!important}
+  .hero .mega{font-size:min(5.3vw,24px)!important;line-height:1.15!important;margin:0 0 14px!important;white-space:nowrap}
+  .hero .mega .ln,.hero .mega .ln>span{white-space:nowrap}
+  .hero .sub{margin:0 0 0!important;font-size:15px!important;line-height:1.5!important}
+  .hero-in{padding-bottom:calc(98px + env(safe-area-inset-bottom))!important}
+}
+
+/* v41: onderbalk = twee losse pillen, geen kader eromheen */
+@media(max-width:800px){
+  .dock{background:none!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;gap:10px!important}
+  .dock a{height:54px!important;box-shadow:0 14px 30px -14px rgba(40,28,16,.65)!important}
+  .dock .dk-wa{background:rgba(255,255,255,.86)!important;-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);box-shadow:inset 0 1px 0 #fff,0 14px 30px -14px rgba(40,28,16,.65)!important}
+}
+
+/* v42: mobiel hero: video bovenaan (logo vrij), kop + tekst DIRECT eronder in de pagina; werkt op elke schermhoogte */
+@media(max-width:800px){
+  .hero.has-vid{display:block!important;height:auto!important;min-height:0!important;background:#17120e}
+  .hero.has-vid .hvid{position:relative!important;inset:auto!important;display:block;width:100%!important;height:126vw!important;max-height:none;object-fit:cover;object-position:50% 0!important;
+    -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}
+  .hero.has-vid .hero-in{position:relative!important;display:block!important;padding:6px var(--gut) calc(120px + env(safe-area-inset-bottom))!important;margin-top:-4px}
+  .hero.has-vid .hero-in .mega{margin:0 0 14px!important}
+}
+
+/* v43: mobiel review: eerst de tekst (Chit chat / How does it feel...), daaronder de video */
+@media(max-width:800px){
+  .rev-grid{display:flex!important;flex-direction:column!important;gap:28px!important}
+  .rev-grid>div:last-child{order:1}
+  .rev-grid>.rvid,.rev-grid>figure{order:2}
+}
+
+/* v44: mobiel filosofie-kaarten hoger (bijna vierkant) */
+@media(max-width:800px){
+  .beliefs li{aspect-ratio:1/1.12!important;min-height:0!important;height:auto!important;align-self:flex-start;justify-content:flex-end!important;padding:28px 24px!important}
+}
