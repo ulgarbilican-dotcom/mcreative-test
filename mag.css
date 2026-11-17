@@ -1081,3 +1081,33 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
 
 /* v33: geen eigen "Watch the review"-knop; de speler heeft al een afspeelknop */
 .rplay{display:none!important}
+
+/* v34: desktop/tablet: 9 logo's in 2 rijen (5 + 4), geen eenzaam logo meer */
+@media(min-width:801px){
+  .logos{display:flex!important;flex-wrap:wrap;justify-content:center;max-width:1040px!important;margin-inline:auto;column-gap:clamp(20px,3vw,48px)!important}
+  .logos li{flex:0 0 calc(20% - clamp(20px,3vw,48px))!important;max-width:calc(20% - clamp(20px,3vw,48px));display:flex;align-items:center;justify-content:center}
+}
+
+/* v35: review-video = zelfde vierkant als alle foto's (480) */
+.rvid{width:min(100%,480px)!important;max-width:480px!important;justify-self:start}
+.rvid video{width:100%!important;aspect-ratio:1/1!important;height:auto!important;max-height:none!important;object-fit:cover}
+@media(min-width:561px) and (max-width:800px){.rvid{max-width:520px!important}}
+@media(max-width:800px){.rvid{width:100%!important;max-width:none!important}}
+
+/* v36: iconen terug in WhatsApp / Call / Email · meer ruimte links-rechts tussen foto en tekst */
+.q{display:flex!important;align-items:center;gap:18px}
+.q .qi{flex:0 0 auto;width:46px;height:46px;padding:12px;border-radius:50%;background:rgba(255,255,255,.7);box-shadow:inset 0 1px 0 #fff,0 8px 18px -10px rgba(70,48,28,.45)}
+.q:first-of-type .qi,.q.wa .qi{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.q .qt{display:flex;flex-direction:column;gap:2px;min-width:0}
+:root{--side-gap:clamp(40px,6.2vw,116px)}
+.intro-grid,.phil-grid,.contact-grid,.rev-grid{column-gap:var(--side-gap)!important}
+.scene-stick{column-gap:var(--side-gap)!important}
+@media(max-width:800px){.intro-grid,.phil-grid,.contact-grid,.rev-grid{column-gap:0!important}}
+.quick .q{flex-direction:row!important;text-align:left!important;justify-content:flex-start!important;align-items:center!important;gap:18px!important}
+.quick .q .qt{align-items:flex-start;text-align:left}
+.quick .q b,.quick .q span{text-align:left!important;margin:0!important}
+.quick .q .qi{margin:0!important}
+/* v37: WhatsApp-icoon zichtbaar (groen op lichte cirkel), zelfde stijl als telefoon en mail */
+.quick .q .qi{background:rgba(255,255,255,.85)!important;color:#0d0d0c!important;box-shadow:inset 0 1px 0 #fff,0 8px 18px -10px rgba(70,48,28,.45)!important}
+.quick .q:first-of-type .qi,.quick .q[href*="wa.me"] .qi{color:#25D366!important}
+.quick .q[href*="wa.me"] .qi{background:#fff!important}
