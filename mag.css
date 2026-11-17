@@ -1111,3 +1111,42 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
 .quick .q .qi{background:rgba(255,255,255,.85)!important;color:#0d0d0c!important;box-shadow:inset 0 1px 0 #fff,0 8px 18px -10px rgba(70,48,28,.45)!important}
 .quick .q:first-of-type .qi,.quick .q[href*="wa.me"] .qi{color:#25D366!important}
 .quick .q[href*="wa.me"] .qi{background:#fff!important}
+
+/* v38: MOBIEL zoals het origineel: logo-video in de hero, burger-menu, onderbalk met WhatsApp + Start a project */
+.burger,.menu,.dock,.mb{display:none}
+@media(max-width:800px){
+  .nav nav,.nav .pill.dark{display:none!important}
+  .nav{justify-content:space-between!important}
+  .burger{display:grid;place-items:center;align-content:center;gap:6px;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;color:#0d0d0c;
+    background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:inset 0 1px 0 #fff,0 10px 24px -12px rgba(0,0,0,.5)}
+  .burger i{display:block;width:20px;height:2px;border-radius:2px;background:currentColor;transition:transform .35s var(--ease)}
+  .burger[aria-expanded="true"] i:first-child{transform:translateY(4px) rotate(45deg)}
+  .burger[aria-expanded="true"] i:last-child{transform:translateY(-4px) rotate(-45deg)}
+  .menu{display:flex;flex-direction:column;position:fixed;z-index:99;top:78px;left:16px;right:16px;padding:10px;border-radius:24px;
+    background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);
+    box-shadow:inset 0 1px 0 #fff,0 30px 60px -24px rgba(40,28,16,.55);opacity:0;transform:translateY(-10px) scale(.98);pointer-events:none;transition:opacity .3s,transform .4s var(--ease)}
+  .menu.open{opacity:1;transform:none;pointer-events:auto}
+  .menu a{padding:16px 18px;font-family:"Archivo Black",Archivo,sans-serif;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#0d0d0c;text-decoration:none;border-radius:16px}
+  .menu a+a{border-top:1px solid rgba(13,13,12,.08)}
+  .menu a.go{background:#0d0d0c;color:#fff;margin-top:6px;text-align:center;border-top:0}
+  .dock{display:flex;position:fixed;z-index:98;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));gap:8px;padding:8px;border-radius:999px;
+    background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);box-shadow:inset 0 1px 0 #fff,0 18px 40px -16px rgba(40,28,16,.6)}
+  .dock a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:999px;font-family:"Archivo Black",Archivo,sans-serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+  .dock .dk-wa{background:rgba(255,255,255,.92);color:#0d0d0c;box-shadow:inset 0 0 0 1px rgba(13,13,12,.08)}
+  .dock .dk-wa svg{width:20px;height:20px;color:#25D366}
+  .dock .dk-go{background:linear-gradient(135deg,#3a2c20,#7a6248 55%,#3a2c20);color:#fff}
+  a.wa{display:none!important}
+  .hero .pill.light{display:none!important}
+  body{padding-bottom:96px}
+  .hero .hvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:0;background:#17120e}
+  .hero.has-vid .hero-bg{display:none}
+  .hero.has-vid .hero-in{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
+  .hero.has-vid.txt .hero-in{opacity:1;transform:none}
+  .hero .hero-in{z-index:2}
+  .mb{display:block}
+  .hero .mega{font-size:min(6.4vw,27px)!important;line-height:1.12!important;margin:0 0 clamp(22px,6vw,30px)!important}
+  .hero .mega .ln{display:block}
+  .hero .sub{margin:0 0 clamp(26px,7vw,36px)!important;line-height:1.6!important}
+  .hero-in{padding-bottom:clamp(120px,30vw,150px)!important}
+}
+@media(max-width:800px){.hero .hvid{object-position:50% 22%!important}.hero-in{padding-bottom:clamp(130px,33vw,165px)!important}}

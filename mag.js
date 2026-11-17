@@ -257,3 +257,29 @@ document.querySelectorAll('a[data-soon]').forEach(a=>a.addEventListener('click',
 (function(){const m=document.querySelector('.sc-media');if(!m)return;const imgs=[...m.querySelectorAll('img')];
  const sync=()=>{const a=imgs.find(i=>i.classList.contains('on'))||imgs[0];if(a)m.style.setProperty('--bg','url("'+a.getAttribute('src')+'")')};
  imgs.forEach(i=>new MutationObserver(sync).observe(i,{attributes:true,attributeFilter:['class']}));sync()})();
+
+/* mobiel: logo-video in de hero (één keer, blijft op het logo) · burger-menu */
+(function(){
+  const hero=document.querySelector('.hero');
+  if(hero&&matchMedia('(max-width:800px)').matches&&!/[?&]motion=off/.test(location.search)){
+    const v=document.createElement('video');
+    v.className='hvid';v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('muted','');
+    v.preload='auto';v.poster='img/reveal-first.jpg';v.setAttribute('aria-hidden','true');
+    const src=document.createElement('source');src.src='media/reveal.mp4';src.type='video/mp4';v.appendChild(src);
+    hero.insertBefore(v,hero.querySelector('.hero-in'));hero.classList.add('has-vid');
+    let shown=false;const show=()=>{if(shown)return;shown=true;hero.classList.add('txt')};
+    v.addEventListener('timeupdate',()=>{if(v.currentTime>=3.2)show();if(v.currentTime>=7.2){v.pause()}});
+    v.addEventListener('ended',show);v.addEventListener('error',show);
+    setTimeout(()=>{if(v.paused&&v.currentTime<.2)show()},1800);setTimeout(show,5500);
+    const go=()=>v.play().catch(()=>{});if(v.readyState>=2)go();else{v.addEventListener('canplay',go,{once:true})}
+  }
+  const b=document.getElementById('burger'),m=document.getElementById('menu');
+  if(b&&m){
+    const set=o=>{m.classList.toggle('open',o);b.setAttribute('aria-expanded',o);m.setAttribute('aria-hidden',!o)};
+    b.addEventListener('click',e=>{e.stopPropagation();set(!m.classList.contains('open'))});
+    m.addEventListener('click',e=>{if(e.target.closest('a'))set(false)});
+    addEventListener('click',e=>{if(m.classList.contains('open')&&!e.target.closest('#menu'))set(false)});
+    addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});
+    addEventListener('scroll',()=>{if(m.classList.contains('open'))set(false)},{passive:true});
+  }
+})();
