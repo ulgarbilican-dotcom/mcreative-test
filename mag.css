@@ -1027,3 +1027,36 @@ main>section:not(.hero):not(#top){padding-top:clamp(96px,11vw,176px)!important;p
   .intro-grid,.phil-grid,.contact-grid,.rev-grid{gap:40px!important}
   .beliefs li{padding:24px!important}
 }
+
+/* v29: tekst en foto dichter bij elkaar; smallere inhoudsbreedte op grote schermen */
+:root{--maxw:1120px}
+.intro-grid,.phil-grid,.contact-grid,.rev-grid{gap:clamp(36px,5vw,72px)!important}
+.scene-stick{grid-template-columns:minmax(0,1fr) minmax(0,520px)!important;column-gap:clamp(36px,5vw,72px)!important}
+.sc-media{max-width:520px!important}
+.intro-grid .photo,.phil-grid .photo,.rvid{max-width:520px!important}
+.intro-grid,.rev-grid{grid-template-columns:minmax(0,520px) minmax(0,1fr)!important}
+.phil-grid{grid-template-columns:minmax(0,520px) minmax(0,1fr)!important}
+.intro-grid .photo,.phil-grid .photo{justify-self:start!important}
+@media(max-width:800px){.intro-grid,.rev-grid,.phil-grid{grid-template-columns:1fr!important}.sc-media{max-width:none!important}}
+
+/* v30: ÉÉN fotoregel: alle foto's vierkant, even groot; kleinere ruimte tussen blokken */
+:root{--ph:min(100%,480px);--side-gap:clamp(28px,3.4vw,52px)}
+.intro-grid .photo,.phil-grid .photo,.sc-media{width:var(--ph)!important;max-width:480px!important;aspect-ratio:1/1!important;height:auto!important;max-height:none!important;min-height:0!important}
+.intro-grid .photo img,.phil-grid .photo img{width:100%!important;height:100%!important;aspect-ratio:1/1!important;max-height:none!important;min-height:0!important;object-fit:cover}
+.sc-media{justify-self:end}
+.intro-grid,.phil-grid,.contact-grid,.rev-grid{column-gap:var(--side-gap)!important;row-gap:40px!important;gap:var(--side-gap)!important}
+.intro-grid,.rev-grid,.phil-grid{grid-template-columns:minmax(0,480px) minmax(0,1fr)!important}
+.scene-stick{grid-template-columns:minmax(0,1fr) minmax(0,480px)!important;column-gap:var(--side-gap)!important}
+.phil-grid{align-items:stretch!important}
+.phil-grid .beliefs{height:100%;grid-auto-rows:1fr;align-content:stretch}
+.beliefs{gap:clamp(12px,1.4vw,20px)!important}
+main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;padding-bottom:clamp(72px,8vw,128px)!important}
+.mega2{margin-bottom:clamp(32px,3.6vw,56px)!important}
+@media(max-width:800px){
+  .intro-grid .photo,.phil-grid .photo,.sc-media{width:100%!important;max-width:none!important}
+  .intro-grid,.rev-grid,.phil-grid,.scene-stick{grid-template-columns:1fr!important}
+  .sc-media{max-height:none!important}
+  main>section:not(.hero):not(#top){padding-top:72px!important;padding-bottom:72px!important}
+  .phil-grid .beliefs{height:auto}
+}
+@media(min-width:561px) and (max-width:800px){.intro-grid .photo,.phil-grid .photo,.sc-media{max-width:520px!important}}
