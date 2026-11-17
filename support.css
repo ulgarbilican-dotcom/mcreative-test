@@ -1,0 +1,59 @@
+main.sup{max-width:980px}
+.sup .intro{font-size:18px;max-width:54ch;margin:0 0 36px}
+.steps3{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.tp{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 18px}
+.tpc{position:relative;text-align:left;padding:18px 18px 16px;border-radius:20px;border:1px solid var(--line);background:#fff;cursor:pointer;font:inherit;color:var(--ink);transition:transform .4s cubic-bezier(.34,1.45,.64,1),box-shadow .35s,border-color .3s,background .3s}
+.tpc b{display:block;font-weight:600;font-size:16px}
+.tpc span{display:block;color:var(--mute);font-size:13.5px;margin-top:4px;line-height:1.4}
+.tpc:hover{transform:translateY(-3px);box-shadow:0 22px 40px -28px rgba(90,60,30,.5)}
+.tpc[aria-pressed=true]{background:linear-gradient(135deg,#fff,var(--soft));border-color:#2a2622;box-shadow:0 0 0 1px #2a2622 inset}
+.tpc[aria-pressed=true]::after{content:"";position:absolute;right:14px;top:14px;width:18px;height:18px;border-radius:50%;background:#2a2622 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-6.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.iss{display:none;flex-wrap:wrap;gap:8px;margin:0 0 36px}
+.iss.on{display:flex}
+.chp{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 14px Inter,sans-serif;color:var(--ink);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.chp:hover{border-color:#2a2622}
+.chp[aria-pressed=true]{background:#2a2622;color:#fff;border-color:#2a2622}
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.two h2{margin-top:0}
+form.sf{display:grid;gap:14px;padding:26px;border-radius:26px;border:1px solid var(--line);background:linear-gradient(135deg,#fff 0%,var(--soft) 100%)}
+form.sf label{font-size:14px;color:var(--mute);display:block}
+form.sf input,form.sf select,form.sf textarea{width:100%;margin-top:6px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;font:400 16px Inter,sans-serif;color:var(--ink);background:#fff}
+form.sf textarea{min-height:140px;resize:vertical}
+form.sf button.go{height:52px;border:0;border-radius:999px;background:var(--metal-dk);color:#fff;font:500 16px Inter,sans-serif;cursor:pointer}
+form.sf .hp{position:absolute;left:-9999px}
+form.sf .fn{font-size:13px;margin:0}
+.sf-ok{display:none;padding:26px;border-radius:26px;background:var(--soft);border:1px solid var(--line)}
+.sf-err{display:none;color:#b3402f;font-size:14px;margin:0}
+.fcard{padding:26px;border-radius:26px;border:1px solid var(--line);background:linear-gradient(135deg,#fff,var(--soft))}
+.fcard h2{font-size:20px}
+.fcard .btnl{display:inline-flex;align-items:center;gap:10px;margin-top:8px;height:50px;padding:0 24px;border-radius:999px;background:var(--metal-dk);color:#fff;text-decoration:none;font-weight:500}
+.fcard ul{padding:0;list-style:none;margin:14px 0 0;display:grid;gap:10px}
+.fcard li a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.tp{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr;gap:36px}}
+@media(max-width:520px){.tp{grid-template-columns:1fr}}
+/* faq */
+.fq-s{position:relative;margin:0 0 22px}
+.fq-s input{width:100%;padding:16px 18px 16px 48px;border:1px solid var(--line);border-radius:999px;font:400 16px Inter,sans-serif;background:#fff;color:var(--ink)}
+.fq-s svg{position:absolute;left:18px;top:50%;width:20px;height:20px;margin-top:-10px;color:var(--mute)}
+.fq-t{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 34px}
+.fq-g{margin:0 0 44px}
+.fq-g h2{margin:0 0 6px}
+.fq-g.hide,.fq-q.hide{display:none}
+.fq-q{border-bottom:1px solid var(--line);padding:16px 0}
+.fq-q summary{cursor:pointer;font-weight:500;color:var(--ink);list-style:none;display:flex;justify-content:space-between;gap:16px}
+.fq-q summary::-webkit-details-marker{display:none}
+.fq-q summary::after{content:"+";font-size:22px;line-height:1;color:var(--mute)}
+.fq-q[open] summary::after{content:"\2212"}
+.fq-q p{margin:10px 0 0;max-width:70ch}
+.fq-none{display:none;padding:20px 0;color:var(--mute)}
+.fq-cta{margin-top:20px;padding:28px;border-radius:26px;border:1px solid var(--line);background:linear-gradient(135deg,#fff,var(--soft));display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.fq-cta b{font-size:18px}
+.fq-cta a{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:999px;background:var(--metal-dk);color:#fff;text-decoration:none;font-weight:500}
+
+form.sf label[hidden]{display:none}
+form.sf select{appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%23706d69' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 14px center/18px no-repeat;padding-right:44px}
+.two{margin-top:8px}
+
+/* aanklikbaar = handje */
+select,summary,button,[role=button],label[for],input[type=submit],input[type=checkbox],input[type=radio],a[href],.chp,.tpc,.tlink,.more{cursor:pointer}
+select:disabled,button:disabled{cursor:not-allowed}

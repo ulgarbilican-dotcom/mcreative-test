@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support · M Creative Studio · Beta</title>
+<meta name="description" content="Choose what your question is about and send us a message. Find answers in our FAQ.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="support.css">
+<link rel="stylesheet" href="dd.css">
+</head>
+<body>
+<header class="top"><div class="in"><a href="index.html" aria-label="M Creative Studio"><img src="img/logo-m.jpg" alt="M Creative Studio"></a><a class="back" href="index.html">&larr; Back to the website</a></div></header>
+<main class="sup">
+<p class="lab">M Creative Studio</p>
+<h1>Support</h1>
+<p class="intro">Tell us what you need help with. Pick a topic, add a few details and send us a message. We get back to you within two working days.</p>
+
+<div class="two">
+<section>
+<h2>Send us a message</h2>
+<form class="sf" id="sf" name="support" method="POST" data-netlify="true" netlify-honeypot="bot">
+<input type="hidden" name="form-name" value="support">
+<p class="hp"><label>Leave empty <input name="bot"></label></p>
+<label>What is it about?<select name="topic" id="topic" required><option value="" disabled selected>Choose a topic</option><option value="project">A project</option><option value="package">Package or invoice</option><option value="content">Content or delivery</option><option value="web">Website or app</option><option value="accounts">Social media accounts</option><option value="data">My data</option><option value="other">Something else</option></select></label>
+<label id="issl" hidden>What exactly?<select name="issue" id="issue2"><option value="">Choose what fits best</option></select></label>
+<label>Your name<input name="name" required autocomplete="name"></label>
+<label>Your email<input type="email" name="email" required autocomplete="email"></label>
+<label>Your message<textarea name="message" required placeholder="Describe your question. Add links, page names or details that help."></textarea></label>
+<button class="go" type="submit">Send message</button>
+<p class="sf-err" id="sferr" role="alert">Something went wrong. Please try again in a moment.</p>
+<p class="fn">By sending this form you agree that we use your details to reply to you. Read our <a href="privacy.html">privacy policy</a>.</p>
+</form>
+<div class="sf-ok" id="sfok" role="status"><b>Thank you, we got your message.</b><p style="margin:6px 0 0">We will get back to you within two working days.</p></div>
+</section>
+<aside class="fcard">
+<h2>Looking for a quick answer?</h2>
+<p>Many questions already have an answer, including questions about websites and apps.</p>
+<a class="btnl" href="faq.html">Read the FAQ</a>
+<ul><li><a href="faq.html#general">General</a></li><li><a href="faq.html#package">Packages and invoices</a></li><li><a href="faq.html#content">Content and delivery</a></li><li><a href="faq.html#web">Websites and apps</a></li><li><a href="faq.html#accounts">Social media accounts</a></li><li><a href="faq.html#data">Your data and privacy</a></li></ul>
+</aside>
+</div>
+</main>
+<footer><a href="support.html">Support</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="cookies.html">Cookies</a><a href="legal-notice.html">Legal notice</a><br><span style="display:block;margin-top:10px">&copy; M Creative Studio &middot; Antwerp, Belgium</span></footer>
+<script>
+(function(){
+var ISS={"project": ["I want to change the planning", "I have feedback on a draft", "I need to share new materials", "I want to add something to my project"], "package": ["I have a question about my invoice", "I want to change my package", "I want to cancel", "I want to ask about a refund"], "content": ["I cannot open or download my files", "Something is missing from my delivery", "I want a change to delivered content", "I have a question about using my content"], "web": ["Something on my website is not working", "I want a change on my website or app", "My website is slow or offline", "I have a question about my domain or hosting"], "accounts": ["I lost access to my account", "A post did not go live", "I want to change who can access my accounts", "I have a question about a platform"], "data": ["I want to see my data", "I want my data corrected", "I want my data deleted", "I have a privacy question"], "other": ["I have a general question", "I want to work together", "I have a complaint", "I have a suggestion"]};
+var sel=document.getElementById('topic'),iss=document.getElementById('issue2'),issl=document.getElementById('issl');
+function fill(k){
+  iss.innerHTML='<option value="">Choose what fits best</option>';
+  var list=ISS[k]||[];
+  list.forEach(function(t){var o=document.createElement('option');o.value=t;o.textContent=t;iss.appendChild(o)});
+  issl.hidden=!list.length;
+}
+sel.addEventListener('change',function(){fill(sel.value)});
+var h=(location.hash||'').slice(1);if(h&&ISS[h]){sel.value=h;fill(h)}
+var f=document.getElementById('sf');
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  var d=new URLSearchParams(new FormData(f)).toString();
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:d})
+    .then(function(r){if(!r.ok)throw 0;f.style.display='none';document.getElementById('sfok').style.display='block'})
+    .catch(function(){document.getElementById('sferr').style.display='block'});
+});
+})();
+</script>
+<script src="dd.js"></script>
+</body>
+</html>

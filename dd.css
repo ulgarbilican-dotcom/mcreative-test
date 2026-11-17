@@ -1,0 +1,17 @@
+/* eigen uitklapmenu */
+.dd{position:relative;margin-top:6px}
+.dd-native{position:absolute!important;opacity:0!important;pointer-events:none!important;width:1px!important;height:1px!important;margin:0!important;padding:0!important;border:0!important;overflow:hidden}
+.dd-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;padding:14px 16px;border:1px solid var(--line,#e8e2da);border-radius:16px;background:#fff;font:400 16px Inter,system-ui,sans-serif;color:var(--ink,#1c1b1a);cursor:pointer;transition:border-color .25s,box-shadow .25s}
+.dd-btn::after{content:"";width:18px;height:18px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%23706d69' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.dd.open .dd-btn::after{transform:rotate(180deg)}
+.dd-btn:hover{border-color:#2a2622}
+.dd-btn:focus-visible,.dd.open .dd-btn{outline:0;border-color:#2a2622;box-shadow:0 0 0 3px rgba(42,38,34,.12)}
+.dd.dd-empty .dd-txt{color:#8a857f}
+.dd-list{position:absolute;z-index:40;left:0;right:0;top:calc(100% + 8px);margin:0;padding:8px;list-style:none;max-height:300px;overflow:auto;border-radius:20px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8);border:1px solid rgba(40,30,20,.12);box-shadow:0 26px 50px -20px rgba(30,20,10,.45),0 4px 10px rgba(30,20,10,.08);opacity:0;visibility:hidden;transform:translateY(-6px) scale(.98);transform-origin:50% 0;transition:opacity .22s,transform .3s cubic-bezier(.22,1,.36,1),visibility 0s .3s}
+.dd.up .dd-list{top:auto;bottom:calc(100% + 8px);transform-origin:50% 100%;transform:translateY(6px) scale(.98)}
+.dd.open .dd-list{opacity:1;visibility:visible;transform:none;transition:opacity .22s,transform .3s cubic-bezier(.22,1,.36,1)}
+.dd-list li{position:relative;padding:12px 40px 12px 14px;border-radius:12px;font-size:15.5px;line-height:1.35;color:var(--ink,#1c1b1a);cursor:pointer;transition:background .15s}
+.dd-list li.hl{background:rgba(0,0,0,.06)}
+.dd-list li.sel{font-weight:600}
+.dd-list li.sel::after{content:"";position:absolute;right:14px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:#2a2622 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-6.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+@media (prefers-reduced-motion:reduce){.dd-list,.dd-btn::after{transition:none}}
