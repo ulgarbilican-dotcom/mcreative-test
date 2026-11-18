@@ -1203,3 +1203,22 @@ main>section:not(.hero):not(#top){padding-top:clamp(72px,8vw,128px)!important;pa
   .beliefs li h3{font-size:clamp(26px,7.4vw,32px)!important;line-height:1.05!important;margin:0 0 16px!important}
   .beliefs li p{font-size:clamp(17px,4.6vw,19px)!important;line-height:1.55!important;max-width:22ch!important;margin:0 auto!important}
 }
+
+/* v46: koppen in balans (geen wees-woord als "US?"), review-kop kleiner */
+.mega2,h1,h2,h3{text-wrap:balance}
+.rev-grid .mega2{font-size:clamp(28px,3.1vw,48px)!important;line-height:1.02!important}
+@media(max-width:800px){.rev-grid .mega2{font-size:clamp(26px,7.4vw,34px)!important}}
+
+/* v47: review-kop op 2 rijen: "HOW DOES IT FEEL / TO WORK WITH US?" (US? blijft bij WITH) */
+.rev-grid .mega2{max-width:none!important;white-space:nowrap;text-wrap:nowrap}
+@media(max-width:800px){.bigcard .mega2{font-size:clamp(20px,5.7vw,30px)!important;white-space:nowrap;text-wrap:nowrap}}
+
+/* v48: mobiel: alle tekst begint op dezelfde linkerlijn (Chit chat-blok had extra inspringing) */
+@media(max-width:800px){
+  .rev-grid>div,.rev-grid>div>*{padding-left:0!important;margin-left:0!important;text-align:left!important;align-self:flex-start!important}
+  .rev-grid>div{width:100%}
+}
+@media(max-width:800px){#work .ch,#work .ch>*{text-align:left!important;margin-left:0!important;margin-right:auto!important;align-items:flex-start!important;max-width:none!important}}
+
+/* v49: mobiel hero-kop groter, blijft op 2 rijen (past op elke breedte) */
+@media(max-width:800px){.hero .mega{font-size:min(calc((100vw - 40px) / 12.9),34px)!important;line-height:1.1!important}}
